@@ -5,6 +5,8 @@ from django.contrib.auth.views import (LoginView,
 										PasswordResetView,
 										PasswordChangeView,
 										PasswordChangeDoneView,
+										PasswordResetConfirmView,
+										PasswordResetDoneView,
 										)
 
 
@@ -37,3 +39,14 @@ class AccountsPasswordChangeView(PasswordChangeView):
 
 class AccountsPasswordChangeDoneView(PasswordChangeDoneView):
 	template_name = "accounts/password_change_done.html"
+
+
+
+class AccountsPasswordResetConfirmView(PasswordResetConfirmView):
+	template_name = "accounts/password_reset_confirm.html"
+	success_url = "password_reset_done"
+
+
+
+class AccountsPasswordResetDoneView(PasswordResetDoneView):
+	template_name = "accounts/password_reset_done.html"
