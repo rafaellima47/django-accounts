@@ -2,6 +2,9 @@ from django.views.generic import FormView
 from .forms import SignupForm
 from django.contrib.auth.views import (LoginView,
 										LogoutView,
+										PasswordResetView,
+										PasswordChangeView,
+										PasswordChangeDoneView,
 										)
 
 
@@ -18,3 +21,19 @@ class AccountsLoginView(LoginView):
 
 class AccountsLogoutView(LogoutView):
 	next_page = "login"
+
+
+
+class AccountsPasswordResetView(PasswordResetView):
+	template_name = "accounts/password_reset.html"
+
+
+
+class AccountsPasswordChangeView(PasswordChangeView):
+	template_name = "accounts/password_change.html"
+	success_url = "password_change_done"
+
+
+
+class AccountsPasswordChangeDoneView(PasswordChangeDoneView):
+	template_name = "accounts/password_change_done.html"
