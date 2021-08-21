@@ -1,13 +1,13 @@
 from django.views.generic import FormView
 from .forms import SignupForm
 from django.contrib.auth.views import (LoginView,
-										LogoutView,
-										PasswordResetView,
-										PasswordChangeView,
-										PasswordChangeDoneView,
-										PasswordResetConfirmView,
-										PasswordResetDoneView,
-										)
+	LogoutView,
+	PasswordResetView,
+	PasswordChangeView,
+	PasswordChangeDoneView,
+	PasswordResetConfirmView,
+	PasswordResetDoneView,
+	)
 
 
 class AccountsSignupView(FormView):
