@@ -1,5 +1,6 @@
 from django.views.generic import FormView
 from .forms import SignupForm
+from django.core.mail import send_mail
 from django.contrib.auth.views import (LoginView,
 	LogoutView,
 	PasswordResetView,
@@ -28,6 +29,7 @@ class AccountsLogoutView(LogoutView):
 
 class AccountsPasswordResetView(PasswordResetView):
 	template_name = "accounts/password_reset.html"
+	email_template_name = 'accounts/password_reset_email.html'
 
 
 
