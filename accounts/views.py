@@ -13,7 +13,7 @@ from django.contrib.auth.views import (
 
 
 class AccountsSignupView(FormView):
-	template_name = "accounts/signup.html"
+	template_name = "registration/signup.html"
 	form_class = SignupForm
 
 
