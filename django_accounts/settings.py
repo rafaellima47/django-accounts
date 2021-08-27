@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,13 +33,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # Other apps
+    "social_django",
+    # My apps
     'accounts',
 ]
 
@@ -142,3 +146,21 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 '''
+
+# Python Social Auth backends
+SOCIAL_AUTHENTICATION_BACKENDS = [
+    #'social_core.backends.google.GoogleOAuth2',
+    #'social_core.backends.twitter.TwitterOAuth',
+    #'social_core.backends.github.GithubOAuth2',
+    #...
+]
+# Adding SOCIAL_AUTHENTICATION_BACKENDS to AUTHENTICATIN_BACKENDS
+settings.AUTHENTICATION_BACKENDS += SOCIAL_AUTHENTICATION_BACKENDS
+
+# Python Social Auth Context Processors
+SOCIAL_CONTEXT_PROCESSORS = [
+    'social_django.context_processors.backends',
+    'social_django.context_processors.login_redirect',
+]
+# Adding Social Auth context processors to templates
+TEMPLATES[0]["OPTIONS"]["context_processors"] += SOCIAL_CONTEXT_PROCESSORS

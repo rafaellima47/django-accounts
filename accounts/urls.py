@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -11,4 +11,6 @@ urlpatterns = [
     path("password_reset/<uidb64>/<token>/", views.AccountsPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path("password_reset/done/", views.AccountsPasswordResetDoneView.as_view(), name='password_reset_done'),
     path("reset/done/", views.AccountsPasswordResetCompleteView.as_view(), name="password_reset_complete"),
+    # social_django URL's
+    path('oauth/', include('social_django.urls', namespace="social")),
 ]
