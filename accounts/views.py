@@ -1,13 +1,14 @@
 from django.views.generic import FormView
 from .forms import SignupForm
-from django.core.mail import send_mail
-from django.contrib.auth.views import (LoginView,
+from django.contrib.auth.views import (
+	LoginView,
 	LogoutView,
 	PasswordResetView,
 	PasswordChangeView,
 	PasswordChangeDoneView,
 	PasswordResetConfirmView,
 	PasswordResetDoneView,
+	PasswordResetCompleteView,
 	)
 
 
@@ -18,37 +19,40 @@ class AccountsSignupView(FormView):
 
 
 class AccountsLoginView(LoginView):
-	template_name = "accounts/login.html"
+	pass
 
 
 
 class AccountsLogoutView(LogoutView):
-	next_page = "login"
+	pass
 
 
 
 class AccountsPasswordResetView(PasswordResetView):
-	template_name = "accounts/password_reset.html"
-	email_template_name = 'accounts/password_reset_email.html'
+	pass
 
 
 
 class AccountsPasswordChangeView(PasswordChangeView):
-	template_name = "accounts/password_change.html"
-	success_url = "password_change_done"
+	pass
 
 
 
 class AccountsPasswordChangeDoneView(PasswordChangeDoneView):
-	template_name = "accounts/password_change_done.html"
+	pass
 
 
 
 class AccountsPasswordResetConfirmView(PasswordResetConfirmView):
-	template_name = "accounts/password_reset_confirm.html"
-	success_url = "password_reset_done"
+	pass
 
 
 
 class AccountsPasswordResetDoneView(PasswordResetDoneView):
-	template_name = "accounts/password_reset_done.html"
+	pass
+
+
+
+class AccountsPasswordResetCompleteView(PasswordResetCompleteView):
+	pass
+
