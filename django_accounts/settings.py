@@ -164,3 +164,7 @@ SOCIAL_CONTEXT_PROCESSORS = [
 ]
 # Adding Social Auth context processors to templates
 TEMPLATES[0]["OPTIONS"]["context_processors"] += SOCIAL_CONTEXT_PROCESSORS
+
+LOGIN_REDIRECT_URL = "signup"
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 #1 Month
