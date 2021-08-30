@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Other apps
     "social_django",
+    "captcha",
     # My apps
     'accounts',
 ]
@@ -170,3 +171,14 @@ LOGOUT_URL = "logout"
 LOGIN_REDIRECT_URL = "index"
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 #1 Month
+
+# ReCaptcha Keys
+RECAPTCHA_PRIVATE_KEY = ""
+RECAPTCHA_PUBLIC_KEY = ""
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]

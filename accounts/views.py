@@ -2,6 +2,7 @@ from django.views.generic import CreateView
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import (
 	AccountsSignupForm, 
 	AccountsLoginForm
