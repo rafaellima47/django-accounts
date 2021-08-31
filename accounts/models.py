@@ -1,16 +1,19 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from django.contrib.auth.hashers import make_password
+from django.utils.translation import gettext as _
 
+'''
+Custom User and UserManager models with email field instead of username field
+'''
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
         if not email:
-            raise ValueError('The given email must be set')
+            raise ValueError(_('The given email must be set'))
         email = self.normalize_email(email)
-        user = self.model(email=email, username=email, **extra_fields)
+        user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -25,17 +28,17 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
 
         if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
+            raise ValueError(_('Superuser must have is_staff=True.'))
         if extra_fields.get('is_superuser') is not True:
-            raise ValueError('Superuser must have is_superuser=True.')
+            raise ValueError(_('Superuser must have is_superuser=True.'))
 
         return self._create_user(email, password, **extra_fields)
 
 
 
 class User(AbstractUser):
-    email = models.EmailField("Email", unique=True)
     username = None
+    email = models.EmailField("Email", unique=True)
 	
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
