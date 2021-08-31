@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, FormView
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth import login, authenticate
@@ -28,6 +28,13 @@ class AccountsSignupView(CreateView):
 		if request.user.is_authenticated:
 			return HttpResponseRedirect(self.get_success_url())
 		return super(AccountsSignupView, self).get(request, *args, **kwargs)
+	
+	def form_valid(self, form):
+		valid = super(AccountsSignupView, self).form_valid(form)
+		email, password = form.cleaned_data.get("email"), form.cleaned_data.get("password1")
+		user = authenticate(email=email, password=password)
+		login(self.request, user)
+		return valid
 	
 
 
@@ -75,4 +82,3 @@ class AccountsPasswordResetDoneView(PasswordResetDoneView):
 
 class AccountsPasswordResetCompleteView(PasswordResetCompleteView):
 	pass
-

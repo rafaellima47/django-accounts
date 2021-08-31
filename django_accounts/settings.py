@@ -139,7 +139,6 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # During Development Only
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 '''
 EMAIL_HOST = ''
 EMAIL_PORT = 587
@@ -147,7 +146,6 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 '''
-
 # Python Social Auth backends
 SOCIAL_AUTHENTICATION_BACKENDS = [
     #'social_core.backends.google.GoogleOAuth2',
@@ -176,6 +174,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 #1 Month
 RECAPTCHA_PRIVATE_KEY = ""
 RECAPTCHA_PUBLIC_KEY = ""
 
+# Password hasher list, with Argon2 as default
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
