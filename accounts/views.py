@@ -61,17 +61,17 @@ class AccountsLogoutView(LogoutView):
 
 
 
-class AccountsPasswordResetView(PasswordResetView):
-	pass
-
-
-
 class AccountsPasswordChangeView(PasswordChangeView):
 	pass
 
 
 
 class AccountsPasswordChangeDoneView(PasswordChangeDoneView):
+	pass
+
+
+
+class AccountsPasswordResetView(PasswordResetView):
 	pass
 
 
