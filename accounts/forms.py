@@ -20,11 +20,7 @@ class AccountsLoginForm(AuthenticationForm):
 	remember_me = forms.BooleanField(initial=True, required=False)
 
 	def __init__(self, request=None, *args, **kwargs):
-		self.recaptcha()
-		super().__init__(self, request=None, *args, **kwargs)
-
-	def recaptcha(self):
-		# If django recaptcha is installed creates the captcha field
+		super().__init__(*args, **kwargs)
 		if "captcha" in settings.INSTALLED_APPS:
-			self.captcha = ReCaptchaField(required=True)
+			self.fields["captcha"] = ReCaptchaField(required=True)
 

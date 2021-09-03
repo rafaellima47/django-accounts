@@ -19,9 +19,19 @@ First clone the repository:
 
     $ git clone git@github.com:rafaellima47/django-accounts.git
     
-Move the "accounts" folder and accounts_requirements.txt to your project directory.
+Move the ``"accounts"`` folder and ``accounts_requirements.txt`` to your project directory.
+
+Now include the accounts urls to ``urls.py`` in your project directory:
+
+```python
+urlpatterns = [
+	...,
+	path("accounts/", include("accounts.urls")),
+	...,
+]
+```
     
-Install the app dependencies:
+Install the app requirements:
 
     $ pip install -r accounts_requirements.txt
     
@@ -38,35 +48,10 @@ INSTALLED_APPS = [
 ]
 ``` 
 
-Paste the content of accounts_settings.py to settings.py of your project.
+Paste the content of accounts_settings.py to settings.py of your project and configure according to what you will use in your project
 
-Add your ReCaptcha keys to the settings:
+Apply the migrations:
 
-```python
-# ReCaptcha keys
-RECAPTCHA_PRIVATE_KEY = "Your Private Key"
-RECAPTCHA_PUBLIC_KEY = "Your Public Key"
-```
-
-Set the backends and the keys of you choice to use with Python Social Auth:
-
-```python
-# Python Social Auth backends configuration
-SOCIAL_AUTHENTICATION_BACKENDS = [
-	'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-]
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'Your google oauth2 key'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'You google oauth2 secret'
-
-SOCIAL_AUTH_TWITTER_KEY = 'Your twitter key'
-SOCIAL_AUTH_TWITTER_SECRET = 'Your twitter secret'
-```
-
-Make and apply the migrations:
-
-    $ python manage.py makemigrations
     $ python manage.py migrate 
 
-
+You can now use and customize the app the way you want in your application.
