@@ -15,7 +15,6 @@ class AccountsSignupForm(UserCreationForm):
 		fields = ["email"]
 
 
-
 class AccountsLoginForm(AuthenticationForm):
 	remember_me = forms.BooleanField(initial=True, required=False)
 

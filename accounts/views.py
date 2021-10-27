@@ -40,7 +40,6 @@ class AccountsSignupView(CreateView):
 		return valid
 
 
-
 class AccountsLoginView(LoginView):
 	form_class = AccountsLoginForm
 	redirect_authenticated_user = True
@@ -55,35 +54,28 @@ class AccountsLoginView(LoginView):
 		return HttpResponseRedirect(self.get_success_url())
 
 
-
 class AccountsLogoutView(LogoutView):
 	pass
-
 
 
 class AccountsPasswordChangeView(PasswordChangeView):
 	pass
 
 
-
 class AccountsPasswordChangeDoneView(PasswordChangeDoneView):
 	pass
-
 
 
 class AccountsPasswordResetView(PasswordResetView):
 	pass
 
 
-
 class AccountsPasswordResetConfirmView(PasswordResetConfirmView):
 	pass
 
 
-
 class AccountsPasswordResetDoneView(PasswordResetDoneView):
 	pass
-
 
 
 class AccountsPasswordResetCompleteView(PasswordResetCompleteView):

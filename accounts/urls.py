@@ -3,6 +3,7 @@ from django.conf import settings
 
 from . import views
 
+
 urlpatterns = [
     path("signup/", views.AccountsSignupView.as_view(), name="signup"),
     path("login/", views.AccountsLoginView.as_view(), name='login'),
